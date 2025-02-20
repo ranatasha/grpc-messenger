@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package api;
+
+import "user.proto";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/ranatasha/grpc-messenger/chat";
+
+message Chat {
+  int32 chatId = 1;             // Идентификатор чата
+  string lastMessage = 2;        // Текст последнего сообщения
+  google.protobuf.Timestamp timestamp = 3;           // Время последнего сообщения
+  repeated api.User participants = 4; // Участники чата
+}
+
+message GetChatsRequest {
+  int32 userId = 1; // ID пользователя
+}
+
+message GetChatsResponse {
+  repeated Chat chats = 1; // Список чатов
+}
+
+service ChatService {
+  rpc GetChats(GetChatsRequest) returns (GetChatsResponse);
+}

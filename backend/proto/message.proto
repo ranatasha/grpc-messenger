@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package api;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/ranatasha/grpc-messenger/message";
+
+message Message {
+  int32 messageId = 1;
+  int32 chatId = 2;             // Идентификатор чата
+  int32 senderId = 3;        // Идентификатор отправителя-пользователя
+  string text = 5;
+  google.protobuf.Timestamp timestamp = 4;           // Время отправки сообщения
+}
+
+message GetMessagesRequest {
+  int32 chatId = 1; // ID чата
+}
+
+message GetMessagesResponse {
+  repeated Message messages = 1; // Список сообщений
+}
+
+service MessageService {
+  rpc GetMessages(GetMessagesRequest) returns (GetMessagesResponse);
+}

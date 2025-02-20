@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/ranatasha/grpc-messenger/user";
+
+message User {
+  int32 userId = 1;             // Идентификатор пользователя
+  string username = 2;        // Имя пользователя
+  string name = 3;
+}
+
+message GetUsersRequest {}
+
+message GetUsersResponse {
+  repeated User users = 1; // Список пользователей
+}
+
+service UserService {
+  rpc GetUsers(GetUsersRequest) returns (GetUsersResponse);
+}
