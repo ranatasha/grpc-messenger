@@ -10,9 +10,9 @@ import (
 	"google.golang.org/grpc/reflection"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/ranatasha/grpc-messenger/chat"
-	"github.com/ranatasha/grpc-messenger/message"
-	"github.com/ranatasha/grpc-messenger/user"
+	"github.com/ranatasha/grpc-messenger/proto/chat"
+	"github.com/ranatasha/grpc-messenger/proto/message"
+	"github.com/ranatasha/grpc-messenger/proto/user"
 )
 
 // Mock database

@@ -4,7 +4,7 @@ package api;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/ranatasha/grpc-messenger/message";
+option go_package = "github.com/ranatasha/grpc-messenger/proto/message";
 
 message Message {
   int32 messageId = 1;

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package api;
 
-option go_package = "github.com/ranatasha/grpc-messenger/user";
+option go_package = "github.com/ranatasha/grpc-messenger/proto/user";
 
 message User {
   int32 userId = 1;             // Идентификатор пользователя

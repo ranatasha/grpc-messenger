@@ -6,7 +6,7 @@ import "user.proto";
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/ranatasha/grpc-messenger/chat";
+option go_package = "github.com/ranatasha/grpc-messenger/proto/chat";
 
 message Chat {
   int32 chatId = 1;             // Идентификатор чата
