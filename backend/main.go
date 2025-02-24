@@ -18,12 +18,15 @@ import (
 // Mock database
 var (
 	users = []user.User{
-		{UserId: 1, Username: "john_doe", Name: "John Doe"},
+		{UserId: 1, Username: "john_leider", Name: "John Leider"},
 		{UserId: 2, Username: "jane_smith", Name: "Jane Smith"},
+		{UserId: 3, Username: "john_doe", Name: "John Doe"},
 	}
 
 	chats = []chat.Chat{
-		{ChatId: 1, LastMessage: "Hello!", Timestamp: timestamppb.New(time.Now()), Participants: []*user.User{&users[0], &users[1]}},
+	    {ChatId: 1, LastMessage: "Reminder to call to the department", Timestamp: timestamppb.New(time.Now()), Participants: []*user.User{&users[0]}},
+		{ChatId: 2, LastMessage: "Hello, Jane! I am going to plan our meeting", Timestamp: timestamppb.New(time.Now()), Participants: []*user.User{&users[0], &users[1]}},
+		{ChatId: 3, LastMessage: "Hello, John!", Timestamp: timestamppb.New(time.Now()), Participants: []*user.User{&users[0], &users[2]}},
 	}
 
 	messages = []message.Message{

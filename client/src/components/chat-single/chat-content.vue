@@ -2,7 +2,7 @@
   <div class="chat-content px-5">
     <div class="chat-content__messages">
       <MessageCloud
-        v-for="msg in messages"
+        v-for="msg in props.messages"
         :key="msg.messageId"
         :value="msg"
         :is-mine="msg.senderId === user.userId"
@@ -18,29 +18,18 @@
 <script setup lang="ts">
 import MessageCloud from '@/components/chat-single/ui/message-cloud.vue';
 import { useUserService } from "@/services/user-service/user-service";
-import { Message } from "@/components/chat-single/model/Message";
+import { Message } from "@/types/message";
 
 const getUserService = useUserService();
 const userService = getUserService();
 
 const user = userService.user;
 
-const messages: Message[] = [
-  {
-    messageId: 1,
-    chatId: 1,
-    senderId: 2,
-    text: 'Привет! Как дела?',
-    timestamp: new Date(),
-  },
-  {
-    messageId: 2,
-    chatId: 2,
-    senderId: 1,
-    text: 'Привет! Все хорошо, у тебя как?',
-    timestamp: new Date(),
-  },
-];
+interface Props {
+  messages: Message[];
+}
+
+const props = defineProps<Props>();
 </script>
 
 <style scoped>
